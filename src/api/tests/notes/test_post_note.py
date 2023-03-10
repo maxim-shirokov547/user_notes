@@ -1,16 +1,15 @@
 import pytest
-from django.urls import reverse
 from django.contrib.auth.models import User
-
+from django.urls import reverse
 from mixer.backend.django import mixer
-from api.tests.utils import post_request
 
 from api.internal.models.notes import Note
+from api.tests.utils import post_request
 
 
 @pytest.mark.django_db
 def test_create_note_succsess(user):
-    data = dict(title="title", description="description")
+    data = dict(title='title', description='description')
 
     assert Note.objects.filter(user=user).count() == 0
 
@@ -22,7 +21,7 @@ def test_create_note_succsess(user):
 
 @pytest.mark.django_db
 def test_create_note_without_user():
-    data = dict(title="title", description="description")
+    data = dict(title='title', description='description')
     response = post_request(reverse('notes-list'), data=data)
 
     assert response.status_code == 401

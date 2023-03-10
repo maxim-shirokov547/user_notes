@@ -1,8 +1,8 @@
 import pytest
-from django.urls import reverse
 from django.contrib.auth.models import User
-
+from django.urls import reverse
 from mixer.backend.django import mixer
+
 from api.tests.utils import post_request
 
 

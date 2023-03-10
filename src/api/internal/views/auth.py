@@ -1,14 +1,13 @@
 from django.contrib.auth.models import User
-
 from rest_framework import generics, status
-from rest_framework.views import APIView
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
-from rest_framework_simplejwt.tokens import RefreshToken
-from rest_framework_simplejwt.exceptions import TokenError
+from rest_framework.views import APIView
 from rest_framework_simplejwt import authentication
+from rest_framework_simplejwt.exceptions import TokenError
+from rest_framework_simplejwt.tokens import RefreshToken
 
-from api.internal.serializers.auth import SignInSerializer, LogOutSerializer
+from api.internal.serializers.auth import LogOutSerializer, SignInSerializer
 
 
 class SignInView(generics.CreateAPIView):

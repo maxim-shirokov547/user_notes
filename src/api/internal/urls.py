@@ -1,12 +1,8 @@
 from django.urls import include, path
 from rest_framework import routers
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
-from rest_framework_simplejwt.views import (
-    TokenObtainPairView,
-    TokenRefreshView,
-)
-
-from api.internal.views.auth import SignInView, LogOutView
+from api.internal.views.auth import LogOutView, SignInView
 from api.internal.views.notes import NoteViewSet
 
 router = routers.SimpleRouter()

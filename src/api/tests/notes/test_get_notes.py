@@ -1,9 +1,9 @@
 import pytest
-from django.urls import reverse
 from django.contrib.auth.models import User
-
+from django.urls import reverse
 from mixer.backend.django import mixer
-from api.tests.utils import get_request, generate_random_index
+
+from api.tests.utils import generate_random_index, get_request
 
 
 @pytest.mark.django_db
@@ -34,7 +34,7 @@ def test_get_notes(user, note, note2):
 
 @pytest.mark.django_db
 def test_get_note_by_id_succsess(user, note):
-    response = get_request(reverse(f'notes-detail', args=(note.id,)), user=user)
+    response = get_request(reverse('notes-detail', args=(note.id,)), user=user)
     assert response.status_code == 200
 
     check_note(response.json())
@@ -42,13 +42,13 @@ def test_get_note_by_id_succsess(user, note):
 
 @pytest.mark.django_db
 def test_get_unexisting_note(user):
-    response = get_request(reverse(f'notes-detail', args=(generate_random_index(),)), user=user)
+    response = get_request(reverse('notes-detail', args=(generate_random_index(),)), user=user)
     assert response.status_code == 404
 
 
 @pytest.mark.django_db
 def test_get_note_without_user(note):
-    response = get_request(reverse(f'notes-detail', args=(note.id,)))
+    response = get_request(reverse('notes-detail', args=(note.id,)))
     assert response.status_code == 401
 
 

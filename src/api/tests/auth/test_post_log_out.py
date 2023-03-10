@@ -1,9 +1,9 @@
 import pytest
-from django.urls import reverse
 from django.contrib.auth.models import User
-
+from django.urls import reverse
 from mixer.backend.django import mixer
-from api.tests.utils import post_request, create_jwt_token
+
+from api.tests.utils import create_jwt_token, post_request
 
 
 @pytest.mark.django_db

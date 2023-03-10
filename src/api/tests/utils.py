@@ -2,9 +2,9 @@ import time
 from random import randint
 
 from django.conf import settings
+from django.contrib.auth.models import User
 from django.http.response import HttpResponse
 from django.test import Client
-from django.contrib.auth.models import User
 from rest_framework_simplejwt.tokens import RefreshToken
 
 client = Client()

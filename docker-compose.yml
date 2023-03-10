@@ -56,16 +56,6 @@ services:
     logging:
       driver: journald
 
-  # nginx-exporter:
-  #   container_name: user_notes_nginx-exporter
-  #   build: ./nginx-exporter
-  #   volumes: 
-  #     - nginx_log_volume:/var/log/nginx
-  #   restart: always
-  #   logging: 
-  #     driver: journald
-
-
 volumes:
   db_volume:
   static_volume:
