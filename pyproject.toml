@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "User Notes"
+version = "1.0.0"
+description = "Backend User Notes app"
+authors = ["befunny <maxim.shirokov547@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+gunicorn = "^20.1.0"
+postgis = "^1.0.4"
+psycopg2 = "^2.9.3"
+django = "^4.1.7"
+pytest-django = "^4.5.2"
+mixer = "^7.2.2"
+djangorestframework = "^3.14.0"
+djangorestframework-simplejwt = "^5.2.2"
+environs = "^9.5.0"
+
+[tool.black]
+line-length = 120
+skip-string-normalization = true
+
+[tool.flake8]
+ignore = "E203, E266, E501, E999, W503, F401, F403"
+max-line-length = 120
+max-complexity = 9
+select = "B, C, E, F, W, T4, B9"
+exclude = ".git, .venv"
+
+[tool.isort]
+combine_as_imports = true
+default_section = "THIRDPARTY"
+include_trailing_comma = true
+line_length = 120
+multi_line_output = 3
+not_skip = "__init__.py"
+skip_glob = ".venv"
+
+[build-system]
+requires = ["poetry-core>=1.1.13"]
+build-backend = "poetry.core.masonry.api"
