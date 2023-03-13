@@ -16,6 +16,7 @@ djangorestframework = "^3.14.0"
 djangorestframework-simplejwt = "^5.2.2"
 environs = "^9.5.0"
 drf-yasg = "^1.21.5"
+django-cors-headers = "^3.14.0"
 
 [tool.black]
 line-length = 120

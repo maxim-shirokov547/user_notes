@@ -3,7 +3,7 @@ from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
 
 
-class SignInSerializer(serializers.ModelSerializer):
+class SignUpSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         user = User.objects.create(username=validated_data['username'])
         user.set_password(validated_data['password'])

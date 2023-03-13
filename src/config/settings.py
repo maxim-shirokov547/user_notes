@@ -16,10 +16,6 @@ from datetime import timedelta
 
 from environs import Env
 
-# from corsheaders.defaults import default_headers
-
-# from api.pkg.auth_module.middlewares.jwt.jwt_config import JWTConfig
-
 env = Env()
 env.read_env()
 
@@ -47,10 +43,12 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
     'drf_yasg',
+    'corsheaders',
     'api',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',

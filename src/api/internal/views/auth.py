@@ -9,13 +9,13 @@ from rest_framework_simplejwt.exceptions import TokenError
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
-from api.internal.serializers.auth import LogOutSerializer, SignInSerializer
+from api.internal.serializers.auth import LogOutSerializer, SignUpSerializer
 
 
-class SignInView(generics.CreateAPIView):
+class SignUpView(generics.CreateAPIView):
     queryset = User.objects.all()
     permission_classes = (AllowAny,)
-    serializer_class = SignInSerializer
+    serializer_class = SignUpSerializer
     swagger_tags = ['auth']
 
 
