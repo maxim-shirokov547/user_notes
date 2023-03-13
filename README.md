@@ -7,6 +7,7 @@
 5. Open ```http://host:port/swagger-ui/``` to view docs.
 
 ## Struct project
+```
 ├── src                           # Source files.
     ├── api         
     │    ├── internal             # Source code files.
@@ -21,3 +22,4 @@
          └── ...
     ├── config                    # Config files.
     └── ...
+```    
