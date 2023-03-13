@@ -1,4 +1,3 @@
-from django.shortcuts import get_object_or_404
 from rest_framework import status, viewsets
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
@@ -12,9 +11,10 @@ class NoteViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated,)
     authentication_classes = (authentication.JWTAuthentication,)
     serializer_class = NoteSerializer
+    http_method_names = ['get', 'post', 'put', 'delete']
 
     def get_queryset(self):
-        return Note.objects.filter(user=self.request.user)
+        return Note.objects.filter(user=self.request.user.id)
 
     def create(self, request):
         serializer = self.get_serializer(data=request.data)

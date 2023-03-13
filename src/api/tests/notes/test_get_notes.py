@@ -1,7 +1,5 @@
 import pytest
-from django.contrib.auth.models import User
 from django.urls import reverse
-from mixer.backend.django import mixer
 
 from api.tests.utils import generate_random_index, get_request
 
@@ -17,7 +15,7 @@ def test_get_empty_notes(user):
     response = get_request(reverse('notes-list'), user=user)
     assert response.status_code == 200
 
-    response_data = response.json()
+    response_data = response.json().get('results', [])
     assert response_data == []
 
 
@@ -26,7 +24,7 @@ def test_get_notes(user, note, note2):
     response = get_request(reverse('notes-list'), user=user)
     assert response.status_code == 200
 
-    response_data = response.json()
+    response_data = response.json().get('results', [])
     assert len(response_data) == 1
 
     check_note(response_data[0])
